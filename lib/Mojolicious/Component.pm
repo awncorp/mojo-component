@@ -41,11 +41,15 @@ fun new_template($self) {
 }
 
 method render(Any %args) {
-  $self->template->render(
-    (Mojo::Loader::data_section($self->space->package, 'component') || ''), {
-      %args, component => $self,
+  my $template;
+  for my $package ($self->space->package, @{$self->space->inherits}) {
+    if ($template = Mojo::Loader::data_section($package, 'component')) {
+      last;
     }
-  )
+  }
+  return $self->template->render(($template || ''), {
+    %args, component => $self,
+  });
 }
 
 1;
