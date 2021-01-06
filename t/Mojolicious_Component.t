@@ -15,13 +15,13 @@ Mojolicious::Component
 
 =tagline
 
-Component-based Template Class
+Module-based Template Class
 
 =cut
 
 =abstract
 
-Component-based Template Abstract Base Class
+Module-based Template Base Class
 
 =cut
 
