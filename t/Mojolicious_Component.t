@@ -33,9 +33,18 @@ method: render
 
 =synopsis
 
-  use Mojolicious::Component;
+  package App::Component::Image;
 
-  my $component = Mojolicious::Component->new;
+  use Mojo::Base 'Mojolicious::Component';
+
+  has alt => 'random';
+  has height => 126;
+  has width => 145;
+  has src => '/random.gif';
+
+  package main;
+
+  my $component = App::Component::Image->new;
 
   # $component->render
 
@@ -72,6 +81,14 @@ render(Any %args) : Str
 
   my $rendered = $component->render;
 
+=example-2 render
+
+  # given: synopsis
+
+  my $rendered = $component->render(
+    readonly => 1,
+  );
+
 =cut
 
 package main;
@@ -87,6 +104,12 @@ $subs->synopsis(fun($tryable) {
 });
 
 $subs->example(-1, 'render', 'method', fun($tryable) {
+  ok !(my $result = $tryable->result);
+
+  $result
+});
+
+$subs->example(-2, 'render', 'method', fun($tryable) {
   ok !(my $result = $tryable->result);
 
   $result
