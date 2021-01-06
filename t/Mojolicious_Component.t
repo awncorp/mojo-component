@@ -59,8 +59,8 @@ component-based template (partials) classes.
 =method render
 
 The render method loads the component template string data from the C<DATA>
-section of the component class and renders it using L<Mojo::Template> object
-available via L</template>.
+section of the component class and renders it using the L<Mojo::Template>
+object available via L</template>.
 
 =signature render
 

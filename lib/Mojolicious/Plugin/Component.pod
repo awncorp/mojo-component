@@ -1,37 +1,19 @@
-use 5.014;
 
-use strict;
-use warnings;
-use routines;
+=encoding utf8
 
-use Test::Auto;
-use Test::More;
+=head1 NAME
 
-=name
-
-Mojolicious::Plugin::Component
+Mojolicious::Plugin::Component - Module-based Component Rendering
 
 =cut
 
-=tagline
-
-Module-based Component Rendering
-
-=cut
-
-=abstract
+=head1 ABSTRACT
 
 Module-based Component Rendering Plugin
 
 =cut
 
-=includes
-
-method: register
-
-=cut
-
-=synopsis
+=head1 SYNOPSIS
 
   package App;
 
@@ -71,19 +53,29 @@ method: register
 
 =cut
 
-=inherits
-
-Mojolicious::Plugin
-
-=cut
-
-=description
+=head1 DESCRIPTION
 
 This package provides L<Mojolicious> module-based component rendering plugin.
 
 =cut
 
-=method register
+=head1 INHERITS
+
+This package inherits behaviors from:
+
+L<Mojolicious::Plugin>
+
+=cut
+
+=head1 METHODS
+
+This package implements the following methods:
+
+=cut
+
+=head2 register
+
+  register(InstanceOf["Mojolicious"] $app, Maybe[HashRef] $config) : Object
 
 The register method registers one or more component builders in the
 L<Mojolicious> application. The configuration information can be provided when
@@ -93,11 +85,9 @@ if no configuration information is provided the plugin will register a builder
 labeled C<use> which will load components under the application's C<Component>
 namespace.
 
-=signature register
+=over 4
 
-register(InstanceOf["Mojolicious"] $app, Maybe[HashRef] $config) : Object
-
-=example-1 register
+=item register example #1
 
   package main;
 
@@ -109,7 +99,11 @@ register(InstanceOf["Mojolicious"] $app, Maybe[HashRef] $config) : Object
 
   $component = $component->register($app);
 
-=example-2 register
+=back
+
+=over 4
+
+=item register example #2
 
   package main;
 
@@ -127,57 +121,34 @@ register(InstanceOf["Mojolicious"] $app, Maybe[HashRef] $config) : Object
   # $app->component->v1('image')
   # $app->component->v2('image')
 
+=back
+
 =cut
 
-package main;
+=head1 AUTHOR
 
-my $test = testauto(__FILE__);
+Al Newkirk, C<awncorp@cpan.org>
 
-my $subs = $test->standard;
+=head1 LICENSE
 
-$subs->synopsis(fun($tryable) {
-  ok my $result = $tryable->result;
+Copyright (C) 2011-2019, Al Newkirk, et al.
 
-  $result
-});
+This is free software; you can redistribute it and/or modify it under the terms
+of the The Apache License, Version 2.0, as elucidated in the L<"license
+file"|https://github.com/cpanery/mojolicious-plugin-component/blob/master/LICENSE>.
 
-$subs->example(-1, 'register', 'method', fun($tryable) {
-  ok my $result = $tryable->result;
-  my $app = App->new;
-  my $component = $app->plugin('component');
-  is ref($result), 'Mojolicious::Plugin::Component';
-  is ref($component), ref($result);
-  my $image = $app->component->use('image');
-  is ref($image), 'App::Component::Image';
-  my $rendered = $image->render;
-  like $rendered, qr/<img/;
-  like $rendered, qr/alt="random"/;
-  like $rendered, qr/height="126"/;
-  like $rendered, qr/src="\/random\.gif"/;
-  like $rendered, qr/width="145"/;
-  $result
-});
+=head1 PROJECT
 
-$subs->example(-2, 'register', 'method', fun($tryable) {
-  ok my $result = $tryable->result;
+L<Wiki|https://github.com/cpanery/mojolicious-plugin-component/wiki>
 
-  $result
-});
+L<Project|https://github.com/cpanery/mojolicious-plugin-component>
 
-ok 1 and done_testing;
+L<Initiatives|https://github.com/cpanery/mojolicious-plugin-component/projects>
 
-package
-  App::Component::Image;
+L<Milestones|https://github.com/cpanery/mojolicious-plugin-component/milestones>
 
-1;
+L<Contributing|https://github.com/cpanery/mojolicious-plugin-component/blob/master/CONTRIBUTE.md>
 
-__DATA__
+L<Issues|https://github.com/cpanery/mojolicious-plugin-component/issues>
 
-@@ component
-
-<img
-  alt="<%= $component->alt %>"
-  height="<%= $component->height %>"
-  src="<%= $component->src %>"
-  width="<%= $component->width %>"
-/>
+=cut
