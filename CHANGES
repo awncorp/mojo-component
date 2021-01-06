@@ -1,7 +1,1 @@
 Changelog for Mojolicious-Plugin-Component
-
-0.01 2021-01-06T05:20:05
- - Add release updates
- - Update Mojolicious::Component DATA section
- - Initial implementation (#2)
- - Initial commit
