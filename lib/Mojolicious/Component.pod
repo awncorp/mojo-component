@@ -3,21 +3,30 @@
 
 =head1 NAME
 
-Mojolicious::Component - Component-based Template Class
+Mojolicious::Component - Module-based Template Class
 
 =cut
 
 =head1 ABSTRACT
 
-Component-based Template Abstract Base Class
+Module-based Template Base Class
 
 =cut
 
 =head1 SYNOPSIS
 
-  use Mojolicious::Component;
+  package App::Component::Image;
 
-  my $component = Mojolicious::Component->new;
+  use Mojo::Base 'Mojolicious::Component';
+
+  has alt => 'random';
+  has height => 126;
+  has width => 145;
+  has src => '/random.gif';
+
+  package main;
+
+  my $component = App::Component::Image->new;
 
   # $component->render
 
@@ -81,6 +90,18 @@ object available via L</template>.
   # given: synopsis
 
   my $rendered = $component->render;
+
+=back
+
+=over 4
+
+=item render example #2
+
+  # given: synopsis
+
+  my $rendered = $component->render(
+    readonly => 1,
+  );
 
 =back
 

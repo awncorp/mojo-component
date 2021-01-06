@@ -118,8 +118,35 @@ namespace.
     v2 => 'App::V2::Component',
   });
 
-  # $app->component->v1('image')
-  # $app->component->v2('image')
+  # my $v1 = $app->component->v1('image');
+  # my $v2 = $app->component->v2('image');
+
+=back
+
+=over 4
+
+=item register example #3
+
+  package main;
+
+  use Mojolicious::Plugin::Component;
+
+  my $app = Mojolicious->new;
+
+  my $component = Mojolicious::Plugin::Component->new;
+
+  $component = $component->register($app, {
+    v1 => 'App::V1::Component',
+    v2 => 'App::V2::Component',
+  });
+
+  # my $v1 = $app->component->v1('image' => (
+  #   src => '/random-v1.gif',
+  # ));
+
+  # my $v2 = $app->component->v2('image' => (
+  #   src => '/random-v2.gif',
+  # ));
 
 =back
 
