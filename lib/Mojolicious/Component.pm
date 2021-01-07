@@ -48,8 +48,14 @@ method render(Any %args) {
     }
   }
   return $self->template->render(($template || ''), {
-    %args, component => $self,
+    $self->variables(%args), component => $self,
   });
+}
+
+method variables(Any %args) {
+  (
+    %args,
+  )
 }
 
 1;
