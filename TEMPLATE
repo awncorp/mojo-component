@@ -12,20 +12,20 @@ Copyright (C) 2011-2019, Al Newkirk, et al.
 
 This is free software; you can redistribute it and/or modify it under the terms
 of the The Apache License, Version 2.0, as elucidated in the L<"license
-file"|https://github.com/cpanery/mojolicious-plugin-component/blob/master/LICENSE>.
+file"|https://github.com/cpanery/mojo-component/blob/master/LICENSE>.
 
 =head1 PROJECT
 
-L<Wiki|https://github.com/cpanery/mojolicious-plugin-component/wiki>
+L<Wiki|https://github.com/cpanery/mojo-component/wiki>
 
-L<Project|https://github.com/cpanery/mojolicious-plugin-component>
+L<Project|https://github.com/cpanery/mojo-component>
 
-L<Initiatives|https://github.com/cpanery/mojolicious-plugin-component/projects>
+L<Initiatives|https://github.com/cpanery/mojo-component/projects>
 
-L<Milestones|https://github.com/cpanery/mojolicious-plugin-component/milestones>
+L<Milestones|https://github.com/cpanery/mojo-component/milestones>
 
-L<Contributing|https://github.com/cpanery/mojolicious-plugin-component/blob/master/CONTRIBUTE.md>
+L<Contributing|https://github.com/cpanery/mojo-component/blob/master/CONTRIBUTE.md>
 
-L<Issues|https://github.com/cpanery/mojolicious-plugin-component/issues>
+L<Issues|https://github.com/cpanery/mojo-component/issues>
 
 =cut
